@@ -1,16 +1,27 @@
-import NuevoPresupuesto from "./NuevoPresupuesto"
+/* eslint-disable react/prop-types */
+import NuevoPresupuesto from "./NuevoPresupuesto";
 
-// eslint-disable-next-line react/prop-types
-const Header = ({presupuesto, setPresupuesto}) => {
+const Header = ({
+  presupuesto,
+  setPresupuesto,
+  isValidPresupuesto,
+  setIsValidPresupuesto,
+}) => {
   return (
     <header>
       <h1>Planificador de Gastos</h1>
-      <NuevoPresupuesto
-        presupuesto={presupuesto}
-        setPresupuesto={setPresupuesto}
-      />
-    </header>
-  )
-}
 
-export default Header
+      {isValidPresupuesto ? (
+        <p>Control de presupuesto </p>
+      ) : (
+        <NuevoPresupuesto
+          presupuesto={presupuesto}
+          setPresupuesto={setPresupuesto}
+          setIsValidPresupuesto={setIsValidPresupuesto}
+        />
+      )}
+    </header>
+  );
+};
+
+export default Header;
