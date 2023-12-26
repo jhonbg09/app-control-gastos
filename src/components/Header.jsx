@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import NuevoPresupuesto from "./NuevoPresupuesto";
+import ControlPresupuesto from "./ControlPresupuesto";
 
 const Header = ({
   presupuesto,
@@ -12,7 +13,9 @@ const Header = ({
       <h1>Planificador de Gastos</h1>
 
       {isValidPresupuesto ? (
-        <p>Control de presupuesto </p>
+        <ControlPresupuesto
+            presupuesto={presupuesto}
+        />
       ) : (
         <NuevoPresupuesto
           presupuesto={presupuesto}
