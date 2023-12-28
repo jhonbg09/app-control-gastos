@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
+import { generarId } from "./helpers/index"
 import IconoNuevoGasto from "./img/nuevo-gasto.svg";
 function App() {
   const [presupuesto, setPresupuesto] = useState(0);
@@ -17,7 +18,13 @@ function App() {
   };
 
   const guardarGasto = gasto => {
-    setGastos
+    gasto.id = generarId();
+    setGastos([...gastos, gasto]);
+
+    setAnimarModal(false);
+    setTimeout(() => {
+      setModal(false);
+    }, 500);
   };
 
   return (
