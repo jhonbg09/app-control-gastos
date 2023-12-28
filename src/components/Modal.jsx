@@ -2,12 +2,27 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import CerrarBtn from "../img/cerrar.svg";
+import Mensaje from "./Mensaje";
 import { useState } from "react";
 
-const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
+    const [mensaje, setMensaje] = useState('')
     const [nombre, setNombre] = useState('')
     const [cantidad, setCantidad] = useState('')
     const [categoria, setCategoia] = useState('')
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if([nombre, cantidad, categoria].includes('')){
+            setMensaje('todos los campos son obligatorios')
+            setTimeout(() => {
+                setMensaje('');
+            }, 2000);
+            return
+        }
+        guardarGasto({nombre, cantidad, categoria}) 
+    }
+
   const ocultarModal = () => {
     setAnimarModal(false);
 
@@ -16,14 +31,15 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
     }, 500);
   };
 
+
   return (
     <div className="modal">
-      <p>Desde Modal</p>
       <div className="cerrar-modal">
         <img src={CerrarBtn} alt="boto cerrar" onClick={ocultarModal} />
       </div>
-      <form className={`formulario ${animarModal ? "animar" : "cerrar"}`}>
+      <form onSubmit={handleSubmit} className={`formulario ${animarModal ? "animar" : "cerrar"}`}>
         <legend>Nuevo Gasto</legend>
+        {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
 
         <div className="campo">
           <label htmlFor="nombre">Nombre Gasto</label>
