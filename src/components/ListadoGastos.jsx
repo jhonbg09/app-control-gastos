@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import Gasto from "./Gasto.jsx"
 // eslint-disable-next-line no-unused-vars
-const ListadoGastos = ({gastos}) => {
+const ListadoGastos = ({gastos, setGastoEditar}) => {
   return (
     <div className="Listado-gastos contenedor">
       <h2>{gastos.length ? 'Gastos' : 'No Hay gastos aun'}</h2>
@@ -10,6 +10,7 @@ const ListadoGastos = ({gastos}) => {
         <Gasto
           key={gasto.id}
           gasto={gasto}
+          setGastoEditar={setGastoEditar}
         />
       ))}
     </div>
