@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import NuevoPresupuesto from "./NuevoPresupuesto";
 import ControlPresupuesto from "./ControlPresupuesto";
@@ -7,6 +8,7 @@ const Header = ({
   setPresupuesto,
   isValidPresupuesto,
   setIsValidPresupuesto,
+  gastos
 }) => {
   return (
     <header>
@@ -15,6 +17,7 @@ const Header = ({
       {isValidPresupuesto ? (
         <ControlPresupuesto
             presupuesto={presupuesto}
+            gastos={gastos}
         />
       ) : (
         <NuevoPresupuesto
