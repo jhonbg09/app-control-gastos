@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css"
 
 const ControlPresupuesto = ({presupuesto, gastos}) => {
   const [disponible, setDisponible] = useState(0)
@@ -23,7 +25,9 @@ const ControlPresupuesto = ({presupuesto, gastos}) => {
   return (
     <div className="contenedor-presupuesto contenedor sombra dos-columnas">
       <div>
-        <p>Grafica aqui</p>
+        <CircularProgressbar
+          value={0}
+        />
       </div>
       <div className="contenido-presupuesto">
         <p>
