@@ -10,7 +10,7 @@ const ControlPresupuesto = ({
         setIsValidPresupuesto
     }) => {
 
-    const [porcentaje, setPorcentaje] = useState(10)
+    const [porcentaje, setPorcentaje] = useState(100)
     const [disponible, setDisponible] = useState(0)
     const [gastado, setGastado] = useState(0)
 
