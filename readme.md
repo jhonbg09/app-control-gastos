@@ -4,6 +4,8 @@
 
 Este proyecto es una aplicación de control de gastos construida con React y Vite. Proporciona una interfaz intuitiva para realizar un seguimiento de los gastos y visualizar el progreso financiero.
 
+![Funcionalidad del app](./src/public/appGastos.gif)
+
 ## Instalación
 
 Para comenzar, clona este repositorio e instala las dependencias:
